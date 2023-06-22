@@ -15,6 +15,10 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request): View
     {
+        // dd($request->getPathInfo());
+        if ($request->getPathInfo() == "/admin/getData") {
+            return view('admin.getData');
+        }
         return view('admin.index');
     }
 }

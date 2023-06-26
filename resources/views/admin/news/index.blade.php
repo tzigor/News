@@ -8,4 +8,28 @@
         </div>
     </div>
 </div>
+<div class="table-responsive">
+    <table class="table table-borderev">
+        <tr>
+            <th>#ID</th>
+            <th>Categories</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th>Date created</th>
+            <th>Action</th>
+        </tr>
+        @foreach($newsList as $news)
+        <tr>
+            <td>{{ $news->id }}</td>
+            <td>{{ $news->categories }}</td>
+            <td>{{ $news->title }}</td>
+            <td>{{ $news->author }}</td>
+            <td>{{ $news->status }}</td>
+            <td>{{ $news->created_at }}</td>
+            <td><a href="#">Edit</a>&nbsp;<a href="javascript:;" style="color:red">Delete</a></td>
+        </tr>
+        @endforeach
+    </table>
+</div>
 @endsection

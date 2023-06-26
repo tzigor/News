@@ -15,6 +15,12 @@ class GetDataController extends Controller
      */
     public function getData(Request $request): View
     {
-        return view('getData');
+        return view('getData.getData');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->query());
+        return response()->json();
     }
 }

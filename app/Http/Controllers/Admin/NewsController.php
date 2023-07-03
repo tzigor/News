@@ -4,25 +4,30 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\News;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View as ViewView;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        return view('admin.news.index');
+        $model = app(News::class);
+        dd($model->getNews(true));
+        return view('admin.news.index', ['newsList' => $model->getNews(true)]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return \view('admin.news.create');
     }
 
     /**
@@ -30,7 +35,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->query());
+        return response()->json();
     }
 
     /**
@@ -46,7 +52,6 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
